@@ -1,0 +1,466 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+:root {
+  --paper: #f8eee8;
+  --ink: #59483f;
+  --rose: #b8787d;
+  --muted: #a58e83;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+.scene {
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(255,255,255,.9), transparent 55%),
+    linear-gradient(135deg, #fbf3ed, #f1e2dc);
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .13;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+.moon {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  top: -115px;
+  right: 12%;
+  background: rgba(255,255,255,.32);
+  filter: blur(2px);
+}
+
+.stars i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #c89c8f;
+  opacity: .5;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.stars i:nth-child(1) { top: 15%; left: 13%; }
+.stars i:nth-child(2) { top: 26%; left: 82%; animation-delay: .7s; }
+.stars i:nth-child(3) { top: 68%; left: 8%; animation-delay: 1.2s; }
+.stars i:nth-child(4) { top: 76%; left: 90%; animation-delay: .4s; }
+.stars i:nth-child(5) { top: 11%; left: 65%; animation-delay: 1.5s; }
+.stars i:nth-child(6) { top: 49%; left: 93%; animation-delay: .9s; }
+.stars i:nth-child(7) { top: 87%; left: 31%; animation-delay: 1.8s; }
+.stars i:nth-child(8) { top: 34%; left: 5%; animation-delay: .2s; }
+
+.intro {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.intro-card {
+  width: min(420px, 100%);
+  padding: 58px 38px 52px;
+  text-align: center;
+  border: 1px solid rgba(173,132,117,.25);
+  background: rgba(255,250,246,.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 80px rgba(115,78,66,.08);
+  animation: cardIn 1.1s both;
+}
+
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: .24em;
+  color: #a77b75;
+  font-weight: 600;
+}
+
+.gift-icon {
+  font-size: 42px;
+  color: #c18487;
+  margin: 28px 0 18px;
+}
+
+.intro h1 {
+  font: 500 clamp(38px, 8vw, 53px)/1.08 'Playfair Display', serif;
+  letter-spacing: -.04em;
+  margin: 0;
+  color: #5e4b43;
+}
+
+.intro h1 em {
+  color: #b8787d;
+  font-weight: 500;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 260px;
+  margin: 20px auto 28px;
+}
+
+.open-button, .replay-button {
+  border: 0;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.open-button {
+  background: #a96f73;
+  color: #fff9f5;
+  padding: 14px 22px;
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+
+.open-button span {
+  padding-left: 16px;
+}
+
+.open-button:hover {
+  background: #88585d;
+  transform: translateY(-2px);
+}
+
+.side-note {
+  position: absolute;
+  bottom: 28px;
+  font-size: 8px;
+  letter-spacing: .2em;
+  color: #b49a8d;
+}
+
+.birthday {
+  display: none;
+  min-height: 100svh;
+  position: relative;
+  grid-template-rows: auto 1fr auto auto;
+  align-items: center;
+  padding: 24px clamp(18px, 5vw, 70px) 22px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.birthday.visible {
+  display: grid;
+}
+
+.birthday.show {
+  opacity: 1;
+}
+
+.topline, footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #b29688;
+  font-size: 8px;
+  letter-spacing: .2em;
+}
+
+.tiny-heart {
+  font-size: 18px;
+  color: #b8787d;
+}
+
+.garden {
+  width: min(590px, 100%);
+  height: min(54vh, 490px);
+  min-height: 300px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.glow {
+  position: absolute;
+  width: 65%;
+  height: 65%;
+  border-radius: 50%;
+  background: rgba(255,255,255,.68);
+  filter: blur(42px);
+  opacity: 0;
+  transition: opacity 2s ease 1s;
+}
+
+.birthday.show .glow {
+  opacity: 1;
+}
+
+.tree-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.tree-stroke {
+  fill: none;
+  stroke: url(#bark);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+}
+
+.trunk {
+  stroke-width: 17;
+}
+
+.branch {
+  stroke-width: 10;
+}
+
+.twig {
+  stroke-width: 6;
+}
+
+.birthday.show .trunk {
+  animation: draw 2.5s ease forwards;
+}
+
+.birthday.show .branch {
+  animation: draw 2s ease 1.4s forwards;
+}
+
+.birthday.show .twig {
+  animation: draw 1.4s ease 2.6s forwards;
+}
+
+.leaf-cluster {
+  fill: url(#leaf);
+  opacity: 0;
+  transform-origin: center;
+}
+
+.birthday.show .leaf-cluster {
+  animation: leafAppear 1.5s ease 2.8s forwards;
+}
+
+.bloom {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.birthday.show .bloom {
+  animation: blossom .8s cubic-bezier(.2,.8,.2,1) var(--delay) forwards;
+}
+
+.falling-petals span {
+  position: absolute;
+  z-index: 2;
+  top: 15%;
+  left: 20%;
+  color: #d69da2;
+  opacity: 0;
+  font-size: 18px;
+  animation: drift 7s linear infinite;
+}
+
+.falling-petals span:nth-child(2) {
+  left: 72%;
+  animation-delay: 1.2s;
+  font-size: 13px;
+}
+
+.falling-petals span:nth-child(3) {
+  left: 35%;
+  animation-delay: 2.4s;
+}
+
+.falling-petals span:nth-child(4) {
+  left: 83%;
+  animation-delay: 3.6s;
+  font-size: 12px;
+}
+
+.falling-petals span:nth-child(5) {
+  left: 58%;
+  animation-delay: 4.8s;
+}
+
+.birthday.show .falling-petals span {
+  opacity: .65;
+}
+
+.message {
+  text-align: center;
+  margin: -8px auto 22px;
+}
+
+.message h2 {
+  font: 500 clamp(36px, 7vw, 52px)/1.1 'Playfair Display', serif;
+  color: #795c55;
+  margin: 10px 0 12px;
+}
+
+.message h2 span {
+  color: #bd7d82;
+}
+
+.message p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #a58e83;
+}
+
+.signature {
+  font: italic 16px 'Playfair Display', serif;
+  color: #b8787d;
+  margin-top: 17px;
+}
+
+.signature span {
+  font-family: sans-serif;
+  font-style: normal;
+}
+
+.replay-button {
+  display: block;
+  margin: 18px auto 0;
+  padding: 9px 14px;
+  color: #9d7772;
+  background: transparent;
+  border-bottom: 1px solid #d9b9ad;
+  font-size: 10px;
+}
+
+.replay-button:hover {
+  color: #704f4b;
+  border-color: #a96f73;
+}
+
+footer {
+  justify-content: center;
+  font-size: 7px;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes leafAppear {
+  from {
+    opacity: 0;
+    transform: scale(.5);
+  }
+  to {
+    opacity: .95;
+    transform: scale(1);
+  }
+}
+
+@keyframes blossom {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-35deg);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.18) rotate(8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0,-20px,0) rotate(0);
+    opacity: 0;
+  }
+  15% { opacity: .7; }
+  85% { opacity: .55; }
+  100% {
+    transform: translate3d(55px,390px,0) rotate(240deg);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  0%,100% {
+    opacity: .2;
+    transform: scale(.7);
+  }
+  50% {
+    opacity: .9;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-height: 700px) {
+  .birthday {
+    padding-top: 15px;
+    padding-bottom: 12px;
+  }
+
+  .garden {
+    height: 42vh;
+    min-height: 245px;
+  }
+
+  .message {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-card {
+    padding: 48px 24px 42px;
+  }
+
+  .garden {
+    height: 42vh;
+    min-height: 270px;
+  }
+
+  .birthday {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}

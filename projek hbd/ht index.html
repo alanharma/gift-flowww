@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8eee8">
+  <title>A Little Birthday Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="scene">
+    <div class="grain"></div>
+    <div class="moon"></div>
+
+    <div class="stars">
+      <i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i>
+    </div>
+
+    <section class="intro" id="intro">
+      <div class="intro-card">
+        <span class="eyebrow">A LITTLE SOMETHING FOR YOU</span>
+        <div class="gift-icon">✿</div>
+        <h1>A day made<br><em>just for you.</em></h1>
+        <p>Some moments deserve to be wrapped in a little magic.</p>
+
+        <button class="open-button" id="openButton">
+          Open your surprise <span>↗</span>
+        </button>
+      </div>
+
+      <span class="side-note">MADE WITH CARE · JUST FOR YOU</span>
+    </section>
+
+    <section class="birthday" id="birthday" aria-hidden="true">
+      <header class="topline">
+        <span>14 NOVEMBER · A SPECIAL DAY</span>
+        <span class="tiny-heart">♡</span>
+      </header>
+
+      <div class="garden">
+        <div class="glow"></div>
+
+        <svg class="tree-svg" viewBox="0 0 600 510">
+          <defs>
+            <linearGradient id="bark" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#76513f"/>
+              <stop offset=".48" stop-color="#a9795c"/>
+              <stop offset="1" stop-color="#654533"/>
+            </linearGradient>
+
+            <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#9eaa82"/>
+              <stop offset="1" stop-color="#6f8067"/>
+            </linearGradient>
+
+            <g id="flower">
+              <circle r="5" fill="#d99a9e"/>
+              <ellipse cy="-9" rx="5.5" ry="8" fill="#f4cbd0"/>
+              <ellipse cy="9" rx="5.5" ry="8" fill="#f4cbd0"/>
+              <ellipse cx="-9" rx="8" ry="5.5" fill="#f4cbd0"/>
+              <ellipse cx="9" rx="8" ry="5.5" fill="#f4cbd0"/>
+              <circle r="3.2" fill="#d49a58"/>
+            </g>
+          </defs>
+
+          <path class="ground-line" d="M105 455 Q300 438 495 455"/>
+          <path class="root" d="M300 440 Q278 455 250 458 M300 440 Q325 455 353 458"/>
+
+          <path class="tree-stroke trunk"
+            d="M300 447 C294 390 310 337 300 286 C294 245 301 205 300 164"/>
+
+          <path class="tree-stroke branch"
+            d="M300 326 C262 295 231 266 190 238 C166 222 146 194 137 163"/>
+
+          <path class="tree-stroke branch"
+            d="M302 300 C341 272 374 241 412 214 C435 197 452 172 461 145"/>
+
+          <path class="tree-stroke branch"
+            d="M299 248 C272 218 260 187 258 151 C256 129 246 110 232 94"/>
+
+          <path class="tree-stroke branch"
+            d="M303 229 C333 199 345 169 347 137 C349 113 362 95 380 80"/>
+
+          <path class="tree-stroke twig" d="M190 238 C179 210 181 190 190 174"/>
+          <path class="tree-stroke twig" d="M137 163 C119 148 108 128 108 108"/>
+          <path class="tree-stroke twig" d="M412 214 C437 208 457 190 467 169"/>
+          <path class="tree-stroke twig" d="M461 145 C480 128 489 108 486 89"/>
+          <path class="tree-stroke twig" d="M258 151 C236 137 221 119 217 98"/>
+          <path class="tree-stroke twig" d="M347 137 C368 129 385 112 391 92"/>
+          <path class="tree-stroke twig" d="M300 164 C282 143 282 121 290 102"/>
+
+          <g class="leaf-cluster">
+            <ellipse cx="130" cy="147" rx="30" ry="13" transform="rotate(35 130 147)"/>
+            <ellipse cx="185" cy="190" rx="34" ry="14" transform="rotate(-28 185 190)"/>
+            <ellipse cx="225" cy="116" rx="32" ry="14" transform="rotate(42 225 116)"/>
+            <ellipse cx="260" cy="174" rx="31" ry="13" transform="rotate(-35 260 174)"/>
+            <ellipse cx="375" cy="111" rx="34" ry="14" transform="rotate(-35 375 111)"/>
+            <ellipse cx="430" cy="177" rx="33" ry="14" transform="rotate(32 430 177)"/>
+            <ellipse cx="477" cy="117" rx="29" ry="13" transform="rotate(-35 477 117)"/>
+            <ellipse cx="330" cy="155" rx="30" ry="13" transform="rotate(35 330 155)"/>
+            <ellipse cx="165" cy="129" rx="24" ry="11" transform="rotate(-30 165 129)"/>
+            <ellipse cx="410" cy="130" rx="25" ry="11" transform="rotate(30 410 130)"/>
+          </g>
+
+          <g class="blossoms">
+            <g class="bloom" style="--delay:2.7s" transform="translate(128 112)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:3.0s" transform="translate(180 157) scale(.8)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:3.2s" transform="translate(222 76) scale(.9)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:3.4s" transform="translate(270 127) scale(.75)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:3.6s" transform="translate(300 83)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:3.8s" transform="translate(356 95) scale(.85)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:4.0s" transform="translate(397 63)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:4.2s" transform="translate(442 132) scale(.8)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:4.4s" transform="translate(485 78) scale(.9)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:4.6s" transform="translate(160 220) scale(.75)"><use href="#flower"/></g>
+            <g class="bloom" style="--delay:4.8s" transform="translate(420 207) scale(.8)"><use href="#flower"/></g>
+          </g>
+        </svg>
+
+        <div class="falling-petals">
+          <span>✿</span><span>✧</span><span>✿</span>
+          <span>✧</span><span>✿</span>
+        </div>
+      </div>
+
+      <div class="message">
+        <span class="eyebrow">TODAY IS YOURS</span>
+        <h2>Happy Birthday<span>!</span></h2>
+
+        <p>
+          May this next chapter bring you quiet joy,<br>
+          beautiful surprises, and reasons to smile.
+        </p>
+
+        <div class="signature">with love <span>♡</span></div>
+
+        <button class="replay-button" id="replayButton">
+          Watch it bloom again ↻
+        </button>
+      </div>
+
+      <footer>GROW AT YOUR OWN PACE · BLOOM IN YOUR OWN TIME</footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
